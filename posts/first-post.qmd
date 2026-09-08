@@ -1,0 +1,11 @@
+---
+title: "Hello Quarto"
+description: "Welcome to my Quarto portfolio"
+author: "Benjamin Lertwachara"
+date: "9/7/26"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+ooh im blogger

@@ -1,0 +1,17 @@
+---
+title: "E155 Portfolio"
+image: images/headshot.jpg
+about:
+    template: jolla
+    links:
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/benjamin-lertwachara-0b8251288/    
+        - icon: github
+          text: Github
+          href: https://github.com/jebeandiah
+---
+
+I'm Ben Lertwachara and I am a CS major at Harvey Mudd College
+
+[Link to Github](https://github.com/jebeandiah)
