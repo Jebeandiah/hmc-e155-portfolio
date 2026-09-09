@@ -46,7 +46,7 @@
     "href": "labs/lab1/lab1.html#results-and-discussion",
     "title": "Lab 1 Report",
     "section": "Results and Discussion",
-    "text": "Results and Discussion\n\nTestbench Simulation\n\n\n\n\n\n\nNoteExpand to see waveforms (clearer images in the repository)\n\n\n\n\n\n\n\n\nFigure 5: Waveform of the sevenseg testbench (sevenseg_tb)\n\n\n\n\n\nFigure 6: Waveform of the heartbeat testbench (heartbeat_tb, reset on low, enable on high)\n\n\n\n\n\nFigure 7: Waveform of the HSOC part of the top testbench (testbench_top)\n\n\n\n\n\nFigure 8: Waveform of the in-out part of the top testbench (testbench_top)\n\n\n\n\n\nFigure 9: Log from the top testbench (testbench_top)\n\n\n\n\n\nThe design met all intended design objectives."
+    "text": "Results and Discussion\n\nTestbench Simulation\n\n\n\n\n\n\nNoteExpand to see waveforms (clearer images in the repository)\n\n\n\n\n\n\n\n\nFigure 5: Waveform of the sevenseg testbench (sevenseg_tb)\n\n\n\n\n\nFigure 7: Waveform of the heartbeat testbench (heartbeat_tb, reset on low, enable on high, on clk8 counter set to max count/2-1, on clk 11 counter set to max count)\n\n\n\n\n\nFigure 8: Log from the heartbeat testbench (heartbeat_tb)\n\n\n\n\n\nFigure 9: Waveform of the HSOC part of the top testbench (testbench_top)\n\n\n\n\n\nFigure 10: Waveform of the in-out part of the top testbench (testbench_top)\n\n\n\n\n\nFigure 11: Log from the top testbench (testbench_top)\n\n\n\n\n\nThe design met all intended design objectives."
   },
   {
     "objectID": "labs/lab1/lab1.html#reflection",
