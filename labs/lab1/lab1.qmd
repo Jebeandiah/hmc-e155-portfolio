@@ -46,13 +46,15 @@ Figure 2 shows how the seven segment display was physically connected to the dev
 ## Expand to see waveforms (clearer images in the repository)
 ![Figure 5: Waveform of the sevenseg testbench (sevenseg_tb)](images/sevenseegwf.png)
 
-![Figure 6: Waveform of the heartbeat testbench (heartbeat_tb, reset on low, enable on high, on clk8 counter set to max count/2-1, on clk 11 counter set to max count)](images/heartbeatwf.png)
+![Figure 7: Waveform of the heartbeat testbench (heartbeat_tb, reset on low, enable on high, on clk8 counter set to max count/2-1, on clk 11 counter set to max count)](images/heartbeatwf.png)
 
-![Figure 7: Waveform of the HSOC part of the top testbench (testbench_top)](images/clkwf.png)
+![Figure 8: Log from the heartbeat testbench (heartbeat_tb)](images/heartbeatlog.png)
 
-![Figure 8: Waveform of the in-out part of the top testbench (testbench_top)](images/topwf.png)
+![Figure 9: Waveform of the HSOC part of the top testbench (testbench_top)](images/clkwf.png)
 
-![Figure 9: Log from the top testbench (testbench_top)](images/toplog.png)
+![Figure 10: Waveform of the in-out part of the top testbench (testbench_top)](images/topwf.png)
+
+![Figure 11: Log from the top testbench (testbench_top)](images/toplog.png)
 
 
 :::
