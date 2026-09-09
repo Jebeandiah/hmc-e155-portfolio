@@ -69,8 +69,8 @@ Prompt: "Write SystemVerilog HDL to leverage the internal high speed oscillator 
 
 Model: "gemini flash 3.6"
 
-::: {.callout-note}
-## Output:
+::: {.callout-note collapse="true"}
+## Expand to see AI output:
 // Top-level module for Lattice iCE40UP5K LED blinker using internal HSOSC
 module led_blink_top (
     output logic led // Output connected to an external or onboard LED
@@ -118,7 +118,7 @@ module led_blink_top (
 
 endmodule
 :::
-The system verilog succesfully syunthesized and generated the following block diagram:
+The system verilog succesfully synthesized and generated the following block diagram:
 ![](images/airtl.png)
 
-I think a common module like this is probably a trivial task for common llms. I would be interested in seeing how well they can handle more complex modules that depend on more libraries and if they can make thorough test benches. Maybe an llm could even help fix Radiant and make it not bad.
+The output seems somewhat similar to something I could write, although the integrated math to calculate the threshold seems more precise than what I did. I also have not used localparam before, but it seems to be a way to make local constants. I think a common module like this is probably a trivial task for the mainstream llms. I would be interested in seeing how well they can handle really complex modules that depend on more libraries and if they can make thorough test benches. Maybe an llm could even help fix Radiant and make it not bad.
