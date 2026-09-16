@@ -7,6 +7,62 @@
     "text": "ooh im blogger"
   },
   {
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "Lab 2 Report",
+    "section": "",
+    "text": "In this lab, time multiplexing was implemented to display distinct values on two 7 segment displays using only 9 signal lines. A 4x4 keypad was also implemented with a scanning module so that when any key was pressed, a light specific to its column would flash with a phase offset specific to its row. PNP transistors were used to control the common anode of the 7 segment displays and NPN transistors were used to prevent shorting FPGA output pins when keys were pressed. ## Hardware\n\n\n\nAssembled breadboard breakout board with dual 7 segment display and keypad"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#introduction",
+    "href": "labs/lab2/lab2.html#introduction",
+    "title": "Lab 2 Report",
+    "section": "",
+    "text": "In this lab, time multiplexing was implemented to display distinct values on two 7 segment displays using only 9 signal lines. A 4x4 keypad was also implemented with a scanning module so that when any key was pressed, a light specific to its column would flash with a phase offset specific to its row. PNP transistors were used to control the common anode of the 7 segment displays and NPN transistors were used to prevent shorting FPGA output pins when keys were pressed. ## Hardware\n\n\n\nAssembled breadboard breakout board with dual 7 segment display and keypad"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#design-and-testing-methodology",
+    "href": "labs/lab2/lab2.html#design-and-testing-methodology",
+    "title": "Lab 2 Report",
+    "section": "Design and Testing Methodology",
+    "text": "Design and Testing Methodology\nA scanning module was created to send a pulse to each column of the keypad sequentially (2hz for full scan). This was done using a counter divided into 4 regions (one region per column). In the top level module, the return signals from the keypad rows are assigned to 4 LED signals. An additional counter was used to generate a 240hz signal to multiplex the displays, switching between which input was decoded and which display was given power."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#technical-documentation",
+    "href": "labs/lab2/lab2.html#technical-documentation",
+    "title": "Lab 2 Report",
+    "section": "Technical Documentation",
+    "text": "Technical Documentation\nThe source code and all figures for the project can be found in the associated Github repository\n\nBlock Diagram\n\n\n\n\n\n\nNoteExpand to see block diagram\n\n\n\n\n\n\n\n\nFigure 1: Block diagram of the Verilog design\n\n\n\n\n\n\n\nSchematic\n\n\n\n\n\n\nNoteExpand to see schematic\n\n\n\n\n\n\n\n\nFigure 2: Schematic of the physical circuit for the displays and external switches\n\n\n\n\n\nFigure 3: Schematic of the physical circuit for the keypad\n\n\n\n\n\n\n\nCalculations\n\n\n\n\n\n\nNoteExpand to see calculations\n\n\n\n\n\nThe seven segment displays were set to refresh at 120hz using a max count calculated like so: \\[{48000000hz / 120hz = 400000 counts}\\]\nThe scanning signal was set to scan each column at 2hz using a max count calculated like so: \\[{48000000hz / 2hz = 24000000 counts}\\]\n\n\n\nFigure 4: Calculation for current limiting resistor value for PNP (3906) transistor, diode of the seven segment display, and NPN (3904) transistor"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#results-and-discussion",
+    "href": "labs/lab2/lab2.html#results-and-discussion",
+    "title": "Lab 2 Report",
+    "section": "Results and Discussion",
+    "text": "Results and Discussion\n\nTestbench Simulation\n\n\n\n\n\n\nNoteExpand to see waveforms (clearer images in the repository)\n\n\n\n\n\n\n\n\nFigure 5: Waveform of the scanner testbench demonstrating state change, reset, and enable (scanner_tb)\n\n\n\n\n\nFigure 6: Log from the scanner testbench (scanner_tb)\n\n\n\n\n\nFigure 7: Waveform from the top module testbench for the seven seg multiplexing part (testbench_top)\n\n\n\n\n\nFigure 8: Waveform from the scanner part of the top testbench (testbench_top)\n\n\n\n\n\nFigure 0: Log from the top module testbench (testbench_top)\n\n\n\n\n\nThe design met all intended design objectives."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#reflection",
+    "href": "labs/lab2/lab2.html#reflection",
+    "title": "Lab 2 Report",
+    "section": "Reflection",
+    "text": "Reflection\nThis lab took about 15 hours. As with the last lab, most of the time was spent debugging testbenches and trying to parse requirements from the spec sheet. I do think I was more efficient with the testbenches, but I still had to spend a lot of time fixing bugs. The specs and lab manual were even more confusing this week. I feel like many aspects of the instructions and specs were unnecessarily mysterious. Even in the context of leaving room for students to figure things out on their own, I am a little baffled at why some information was left out. For example, the keypad light output didn’t even specify how many lights should be used (It’s obvious if just directly assigning the inputs to the outputs that it should be 4, but its not clear what the intended outcome even is). The amount of pins this lab requires also did not seem to be a consideration, althought I imagine thasts due to the last minute additions from lab 3.\n\nAI Prototype Summary\nPrompt 1 (outside of context): “Write SystemVerilog HDL to time multiplex a single seven segment decoder (that decodes from four bits to a common anode seven segment display) to decode two sets of input bits and drive two sets of seven output bits.”\nModel: “gemini flash 3.6”\n\n\n\n\n\n\nNoteExpand to see AI output:\n\n\n\n\n\nmodule top_display_mux #( parameter CLK_FREQ = 50_000_000 // 50 MHz input clock ) ( input logic clk, input logic rst_n, // Active-low asynchronous reset input logic [3:0] in_digit0, // First 4-bit BCD input input logic [3:0] in_digit1, // Second 4-bit BCD input output logic [6:0] seg, // Seven-segment output (Active LOW: {g,f,e,d,c,b,a}) output logic [1:0] digit_an // Digit enable anodes (Active LOW: [1] = Digit 1, [0] = Digit 0) );\n// ------------------------------------------------------------------------\n// 1. Clock Divider for Refresh Rate (~1 kHz toggle rate / ~500 Hz full cycle)\n// ------------------------------------------------------------------------\nlocalparam CNT_MAX = (CLK_FREQ / 1000) - 1;\nlocalparam CNT_WIDTH = $clog2(CNT_MAX + 1);\n\nlogic [CNT_WIDTH-1:0] refresh_counter;\nlogic                 digit_select;\n\nalways_ff @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        refresh_counter &lt;= '0;\n        digit_select    &lt;= 1'b0;\n    end else if (refresh_counter == CNT_MAX) begin\n        refresh_counter &lt;= '0;\n        digit_select    &lt;= ~digit_select; // Alternate active digit\n    end else begin\n        refresh_counter &lt;= refresh_counter + 1'b1;\n    end\nend\n\n// ------------------------------------------------------------------------\n// 2. Anode Control (Active-Low Common Anodes)\n// ------------------------------------------------------------------------\nalways_comb begin\n    case (digit_select)\n        1'b0:    digit_an = 2'b10; // Enable Digit 0 (Active Low)\n        1'b1:    digit_an = 2'b01; // Enable Digit 1 (Active Low)\n        default: digit_an = 2'b11; // Turn off both\n    endcase\nend\n\n// ------------------------------------------------------------------------\n// 3. Input Multiplexer\n// ------------------------------------------------------------------------\nlogic [3:0] selected_digit;\n\nassign selected_digit = (digit_select == 1'b0) ? in_digit0 : in_digit1;\n\n// ------------------------------------------------------------------------\n// 4. Shared Seven-Segment Decoder Instance\n// ------------------------------------------------------------------------\nseven_seg_decoder_ca u_decoder (\n    .bcd(selected_digit),\n    .seg(seg)\n);\nendmodule\n// ============================================================================ // Single 4-bit to Common Anode Seven Segment Decoder // Mapping: seg[6]=g, seg[5]=f, seg[4]=e, seg[3]=d, seg[2]=c, seg[1]=b, seg[0]=a // ============================================================================ module seven_seg_decoder_ca ( input logic [3:0] bcd, output logic [6:0] seg // Active LOW outputs (0 = segment ON, 1 = segment OFF) );\nalways_comb begin\n    case (bcd)\n        4'h0: seg = 7'b100_0000; // 0\n        4'h1: seg = 7'b111_1001; // 1\n        4'h2: seg = 7'b010_0100; // 2\n        4'h3: seg = 7'b011_0000; // 3\n        4'h4: seg = 7'b001_1001; // 4\n        4'h5: seg = 7'b010_0100; // 5\n        4'h6: seg = 7'b000_0010; // 6\n        4'h7: seg = 7'b111_1000; // 7\n        4'h8: seg = 7'b000_0000; // 8\n        4'h9: seg = 7'b001_0000; // 9\n        4'hA: seg = 7'b000_1000; // A\n        4'hB: seg = 7'b000_0011; // b\n        4'hC: seg = 7'b100_0110; // C\n        4 me: seg = 7'b010_0001; // d\n        4'hE: seg = 7'b000_0110; // E\n        4'hF: seg = 7'b000_1110; // F\n        default: seg = 7'b111_1111; // Blank display\n    endcase\nend\nendmodule\n\n\n\nAstoundingly, the output had a syntax error. I’ve done a lot of vibe-coding, and never had and ai output with a blatant syntax error like this, where it strays from a pattern that it clearly is capable of writing. It almost seems just like a typo.\nOtherwise, the output is very similar to what I wrote, and doesn’t use any particularly advanced features of system verilog.\nPrompt 2 (In-context): “Write SystemVerilog HDL to time multiplex a single seven segment decoder (that decodes from four bits to a common anode seven segment display) to decode two sets of input bits and drive two sets of seven output bits. Use the seven segment decoder and oscillator provided in the attached files.”\nModel: “gemini flash 3.6”\n\n\n\n\n\n\nNoteExpand to see the in-context AI output:\n\n\n\n\n\nmodule top_mux_sevenseg #( parameter REFRESH_COUNT = 100_000 // Adjust based on clk frequency for display refresh (~100Hz-1kHz) ) ( input logic clk, input logic reset, // Active low, matching counter module logic input logic [3:0] s0, input logic [3:0] s1, output logic [6:0] seg0, output logic [6:0] seg1 );\n// Counter output signals\nlogic [24:0] count;\n\n// Instantiate oscillator/counter module\n// Uses active-low reset and continuous enable[cite: 1]\ncounter #(\n    .MAX_COUNT(REFRESH_COUNT),\n    .COUNTER_WIDTH(25)\n) clk_div (\n    .clk(clk),\n    .reset(reset),\n    .enable(1'b1),\n    .counter(count)\n);\n\n// State signal to alternate multiplexing phase\nlogic mux_sel;\n\n// Toggle multiplexer state when the counter rolls over\nalways_ff @(posedge clk) begin\n    if (!reset) begin\n        mux_sel &lt;= 1'b0;\n    end else if (count == REFRESH_COUNT - 1) begin\n        mux_sel &lt;= ~mux_sel;\n    end\nend\n\n// Input multiplexer to shared decoder\nlogic [3:0] current_s;\nassign current_s = (mux_sel) ? s1 : s0;\n\n// Shared 7-segment decoder instance\nlogic [6:0] decoded_seg;\nsevenseg decoder (\n    .s(current_s),\n    .seg(decoded_seg)\n);\n\n// Output registers/latches to hold segment values for each display\nalways_ff @(posedge clk) begin\n    if (!reset) begin\n        seg0 &lt;= 7'b1111111; // Blank display (active-low output)\n        seg1 &lt;= 7'b1111111;\n    end else begin\n        if (mux_sel == 1'b0) begin\n            seg0 &lt;= decoded_seg;\n        end else begin\n            seg1 &lt;= decoded_seg;\n        end\n    end\nend\nendmodule\n\n\n\nThis time, as expected, the output is syntactically correct. It does things quite differently from my impleentation, using an additional 2 flops in the top module."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E155 Portfolio",
+    "section": "",
+    "text": "I’m Ben Lertwachara and I am a CS major at Harvey Mudd College\nLink to Github"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Hello Quarto\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nSep 7, 2026\n\n\nBenjamin Lertwachara\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "labs/lab1/lab1.html",
     "href": "labs/lab1/lab1.html",
     "title": "Lab 1 Report",
@@ -56,24 +112,10 @@
     "text": "Reflection\nThis lab took about 22 hours. The board assembly did not take as long as I expected, instead, most of the time was spent debugging testbenches and trying to parse requirements from the spec sheet. My system verilog skills are definitely a little rough, but I think I was able to relearn a lot during this lab.\n\nAI Prototype Summary\nPrompt: “Write SystemVerilog HDL to leverage the internal high speed oscillator in the Lattice UP5K FPGA and blink an LED at 2 Hz. Take full advantage of SystemVerilog syntax, for example, using logic instead of wire and reg”\nModel: “gemini flash 3.6”\n\n\n\n\n\n\nNoteExpand to see AI output:\n\n\n\n\n\n// Top-level module for Lattice iCE40UP5K LED blinker using internal HSOSC module led_blink_top ( output logic led // Output connected to an external or onboard LED );\n// ------------------------------------------------------------------------\n// Internal Oscillator Primitive Instantiation\n// ------------------------------------------------------------------------\nlogic clk_48mhz;\n\n// HSOSC Primitive Settings:\n// CLKHF_DIV = \"0b00\" -&gt; 48 MHz (Default)\n//             \"0b01\" -&gt; 24 MHz\n//             \"0b10\" -&gt; 12 MHz\n//             \"0b11\" -&gt; 6 MHz\nHSOSC #(\n    .CLKHF_DIV(\"0b00\")\n) hsosc_inst (\n    .CLKHFPU(1'b1),      // Power-up signal: 1 = Oscillator active, 0 = Power down\n    .CLKHFEN(1'b1),      // Enable signal: 1 = Output enabled\n    .CLKHF(clk_48mhz)    // 48 MHz output clock signal\n);\n\n// ------------------------------------------------------------------------\n// 2 Hz LED Blink Generator\n// ------------------------------------------------------------------------\n// Target Frequency: 2 Hz (Toggle rate: 4 Hz -&gt; Every 12,000,000 clock cycles)\n// Formula: Threshold = (Clock Frequency / (2 * Target Frequency)) - 1\n// Threshold = (48,000,000 / 4) - 1 = 11,999,999\n\nlocalparam int unsigned CLK_FREQ   = 48_000_000;\nlocalparam int unsigned TOGGLE_CNT = (CLK_FREQ / 4) - 1;\n\n// 24 bits are required to store up to 11,999,999 (2^24 - 1 = 16,777,215)\nlogic [23:0] counter = '0;\n\nalways_ff @(posedge clk_48mhz) begin\n    if (counter == TOGGLE_CNT) begin\n        counter &lt;= '0;\n        led     &lt;= ~led; // Toggle LED state\n    end else begin\n        counter &lt;= counter + 1'b1;\n    end\nend\nendmodule\n\n\n\nThe system verilog succesfully synthesized and generated the following block diagram: \nThe output seems somewhat similar to something I could write, although the integrated math to calculate the threshold seems more precise than what I did. I also have not used localparam before, but it seems to be a way to make local constants. I think a common module like this is probably a trivial task for the mainstream llms. I would be interested in seeing how well they can handle really complex modules that depend on more libraries and if they can make thorough test benches. Maybe an llm could even help fix Radiant and make it not bad."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
-    "section": "",
-    "text": "Hello Quarto\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nSep 7, 2026\n\n\nBenjamin Lertwachara\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "E155 Portfolio",
-    "section": "",
-    "text": "I’m Ben Lertwachara and I am a CS major at Harvey Mudd College\nLink to Github"
-  },
-  {
     "objectID": "labs.html",
     "href": "labs.html",
     "title": "Labs",
     "section": "",
-    "text": "Lab 1 Report\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nBenjamin Lertwachara\n\n\n\n\n\nNo matching items"
+    "text": "Lab 2 Report\n\n\n\n\n\n\n\n\nSep 15, 2026\n\n\nBenjamin Lertwachara\n\n\n\n\n\n\n\n\n\n\n\n\nLab 1 Report\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nBenjamin Lertwachara\n\n\n\n\n\nNo matching items"
   }
 ]
