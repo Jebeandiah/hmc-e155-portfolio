@@ -29,7 +29,6 @@ The source code and all figures for the project can be found in the associated [
 ::: {.callout-note collapse="true"}
 ## Expand to see schematic
 ![Figure 2: Schematic of the physical circuit for the displays and external switches](images/schem1.png)
-
 ![Figure 3: Schematic of the physical circuit for the keypad](images/schem.png)
 :::
 
