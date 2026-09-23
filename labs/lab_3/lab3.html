@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Benjamin Lertwachara">
+<meta name="dcterms.date" content="2026-09-23">
+
+<title>Lab 3 Report – E155 Portfolio</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">E155 Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../labs.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a>
+  <ul class="collapse">
+  <li><a href="#block-diagrams" id="toc-block-diagrams" class="nav-link" data-scroll-target="#block-diagrams">Block Diagrams</a></li>
+  <li><a href="#fsm-diagrams" id="toc-fsm-diagrams" class="nav-link" data-scroll-target="#fsm-diagrams">FSM Diagrams</a></li>
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a>
+  <ul class="collapse">
+  <li><a href="#testbench-simulation" id="toc-testbench-simulation" class="nav-link" data-scroll-target="#testbench-simulation">Testbench Simulation</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 3 Report</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Benjamin Lertwachara </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 23, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this lab, reading inputs through scanning a 4x4 keypad was implemented, with values displayed to a multiplexed dual seven segment display. Debouncing, multipress handling, and final key rolloff were all implemented. ## Hardware</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/assembled.jpg" class="img-fluid figure-img"></p>
+<figcaption>Assembled breadboard breakout board with dual 7 segment display and keypad</figcaption>
+</figure>
+</div>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
+<p>Debouncing Strategy: My debouncing strategy was to immediately register digit changes, but pause digit tracking for 50ms to avoid registering any additional bounces. For a simple strategy, I think this is pretty good since there isn’t any added latency between press and register, so you can have a very long debounce time with less of a noticeable effect. However, it isn’t perfect. A more complete debouncing strategy might continue to track digits during debouncing, and register presses that occured during the debounce time but after the initial digit resolved off.</p>
+<p>FSM Design: There are some questionable elements of my FSM design. Primarily, before any inputs reach my main communicating FSM, they get processed by a very non-canonical FSM. This initial processing step tracks when single keys are pressed, when no keys are pressed, and decodes a digit from them. My main FSM is controlled by a three state canonical FSM (tracking, enable_shift, and debouncing). I use a counter (50ms) to move from the debouncing state to the tracking state. During the tracking state, my non_canonical digit tracker FSM is enabled. When it tracks a digit change, the control FSM moves from tracking to enable_shift. During enable_shift, my controller outputs an enable signal for my digit buffer, telling ti to shift a new digit onto the display. Enable_shift always moves immediately to debounce to ensure the digit only gets shifted once.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
+<p>The source code and all figures for the project can be found in the associated <a href="https://github.com/Jebeandiah/e155lab3/tree/main">Github repository</a></p>
+<section id="block-diagrams" class="level3">
+<h3 class="anchored" data-anchor-id="block-diagrams">Block Diagrams</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see block diagram
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topblk.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Block diagram of top level module</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scannerblk.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Block diagram of scanner module</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pollerblk.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Block diagram of poller module</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fsm-diagrams" class="level3">
+<h3 class="anchored" data-anchor-id="fsm-diagrams">FSM Diagrams</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see FSM diagrams
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/statediagram.jpeg" class="img-fluid figure-img"></p>
+<figcaption>State transition diagram of controller fsm in debouncer module</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fsmtable.jpeg" class="img-fluid figure-img"></p>
+<figcaption>State transition table of controller fsm in debouncer module</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="schematic" class="level3">
+<h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see schematic
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="images/schem.png" class="img-fluid" alt="Schematic of the physical circuit for the displays"> <img src="images/schem2.png" class="img-fluid" alt="Schematic of the physical circuit for the keypad"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="calculations" class="level3">
+<h3 class="anchored" data-anchor-id="calculations">Calculations</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see calculations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The seven segment displays were set to refresh at 120hz using a max count calculated like so: <span class="math display">\[{48000000hz / 120hz = 400000 counts}\]</span></p>
+<p>The debounce time was set to 50ms using a max count calculated like so: <span class="math display">\[{48000000hz * 0.05s = 2400000 counts}\]</span></p>
+<p>The scanning rate was increased while inputs remained stable, resulting in a scanning rate of: <span class="math display">\[{48000000hz / 4096 counts = 11718.75hz}\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/calcs.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: Calculation for current limiting resistor value for PNP (3906) transistor, diode of the seven segment display, and NPN (3904) transistor</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<section id="testbench-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="testbench-simulation">Testbench Simulation</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see waveforms (clearer images in the repository)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the top testbench demonstrating bouncing inputs</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/toponclkwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the top testbench demonstrating input on clock edge</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/toplog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the top testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pollerwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the poller testbench demonstrating correct aggregation of inputs</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pollerlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the poller testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reducerwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the onehotreducer testbench demonstrating proper decodings</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reducerlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the onehhotreducer testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/debouncerwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the debouncer testbench demonstrating proper state transitions</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/debouncerlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the debouncer testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/digittrackerwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the digittracker testbench demonstrating proper enable/disable behaviour</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/digittrackerlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the digittracker testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scynchronizerwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the synchronizer testbench demonstrating accurate delay</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/synchronizerlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the synchronizer testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/digitbufferwf.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform from the digitbuffer testbench demonstrating enable/disable and digit shifting behaviour</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/digitbufferlog.png" class="img-fluid figure-img"></p>
+<figcaption>Log from the digitbuffer testbench</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The design met all intended design objectives.</p>
+</section>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
+<p>This lab took about 30 hours. Most of my time was spent rewriting my code to better fit the three FSM types.</p>
+<p>The specs were bad. I don’t understand how specs that were derived from clear requirements in someone’s head end up missing so many critical details. Why am I trying to follow these specs when there are countless caveats and interactions with things said from class that affect how they should be implemented. I think the worst offender this week were the specs concerning the block diagrams. I don’t think a single person will make their diagrams as the specs seem to dictate, and those specs only start to make sense in conjunction with information that Prof.&nbsp;Spencer presented on the lab check in day. Also, I don’t remember if there were other resources, but the lab report template has an incomplete block diagram and schematic.</p>
+<p>I also think the amount I learn during lab really drops off after a certain amount of time. For the first 8 or so hours, I am engaged and trying new things and trying to improve. Past that, my focus really shifts to just checking off boxes. At that point, I was restructuring my verilog, finishing up test benches, and doing all the diagrams. I think most of these deliverables ended up being decent, but I really did not care about doing them well or deeply learning about how they interacted with my system.</p>
+</section>
+<section id="ai-prototype-summary" class="level3">
+<h3 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h3>
+<p>Prompt 1:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see prompt:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“Target device: Lattice iCE40 UP5K FPGA with internal high-speed oscillator (~20 MHz).</p>
+<p>Write synthesizable SystemVerilog to scan a 4x4 matrix keypad and display the last two hex keys pressed on a dual 7‑segment display. Implement:</p>
+<p>A clock divider that derives a scan clock on the order of 100–200 Hz from the internal oscillator. A keypad scanning controller that iterates one active‑low column at a time and samples active‑low rows, registering at most one key per press (debounce‑by‑design), ignoring additional presses while any key is held, and allowing a new registration only after release. A top level that updates two hex digits (older and most recent) when a new key is registered and drives a time‑multiplexed two‑digit 7‑segment display without visible flicker and with balanced brightness. Use idiomatic SystemVerilog (e.g., logic, always_ff, enumerated states for FSMs). Provide clean module boundaries and keep all state synchronous. Include brief comments explaining the design choices.”</p>
+</div>
+</div>
+</div>
+<p>Model: “gemini flash 3.6”</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see AI output:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>module keypad_one_shot #( parameter integer CLK_FREQ_HZ = 12_000_000, // Default 12 MHz internal oscillator parameter integer DEBOUNCE_MS = 10 // Debounce settling time )( input logic clk, input logic rst_n,</p>
+<pre><code>// Inputs from Matrix Scanner / Raw Keypad Interface
+input  logic       key_pressed, // Asserted (1) when ANY key is currently down
+input  logic [3:0] raw_key_code,// Current key code from scanner
+
+// Keypad One-Shot Outputs
+output logic [3:0] key_code,   // Stable captured 4-bit key code
+output logic       key_valid   // Single-cycle high pulse on new key press</code></pre>
+<p>);</p>
+<pre><code>// Calculate debounce counter threshold based on clock frequency
+localparam integer DEBOUNCE_CYCLES = (CLK_FREQ_HZ / 1000) * DEBOUNCE_MS;
+localparam integer TIMER_WIDTH     = $clog2(DEBOUNCE_CYCLES);
+
+// FSM State Encoding
+typedef enum logic [1:0] {
+    ST_IDLE      = 2'b00, // Waiting for a key press
+    ST_DEBOUNCE  = 2'b01, // Settling press/release bounce
+    ST_REGISTER  = 2'b10, // Pulse key_valid and capture key_code
+    ST_WAIT_RELEASE = 2'b11  // Hold until all keys are completely released
+} state_t;
+
+state_t state, next_state;
+
+// Registers
+logic [TIMER_WIDTH-1:0] timer_cnt;
+logic                   timer_expired;
+logic                   timer_rst;
+
+// -------------------------------------------------------------------------
+// 1. Debounce Counter
+// -------------------------------------------------------------------------
+assign timer_expired = (timer_cnt &gt;= (DEBOUNCE_CYCLES - 1));
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        timer_cnt &lt;= '0;
+    end else if (timer_rst) begin
+        timer_cnt &lt;= '0;
+    end else if (!timer_expired) begin
+        timer_cnt &lt;= timer_cnt + 1'b1;
+    end
+end
+
+// -------------------------------------------------------------------------
+// 2. FSM State &amp; Output Registers (Sequential)
+// -------------------------------------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        state     &lt;= ST_IDLE;
+        key_code  &lt;= 4'h0;
+        key_valid &lt;= 1'b0;
+    end else begin
+        state &lt;= next_state;
+
+        // Glitch-Free Registered Output Logic
+        if (next_state == ST_REGISTER) begin
+            key_valid &lt;= 1'b1;
+            key_code  &lt;= raw_key_code; // Lock in the stable key code
+        end else begin
+            key_valid &lt;= 1 me_b0; // Default to zero for all other states
+        end
+    end
+end
+
+// Fix small syntax typo in key_valid assignment
+// (Explicitly breaking down the state output register to avoid syntax edge-cases)
+
+// -------------------------------------------------------------------------
+// 3. FSM Next-State &amp; Control Logic (Combinational)
+// -------------------------------------------------------------------------
+always_comb begin
+    next_state = state;
+    timer_rst  = 1'b0;
+
+    case (state)
+        ST_IDLE: begin
+            if (key_pressed) begin
+                timer_rst  = 1'b1;
+                next_state = ST_DEBOUNCE;
+            end
+        end
+
+        ST_DEBOUNCE: begin
+            // If signal drops mid-debounce, return to idle (glitch / noise)
+            if (!key_pressed) begin
+                next_state = ST_IDLE;
+            end else if (timer_expired) begin
+                next_state = ST_REGISTER;
+            end
+        end
+
+        ST_REGISTER: begin
+            // Transition immediately after one clock cycle
+            next_state = ST_WAIT_RELEASE;
+        end
+
+        ST_WAIT_RELEASE: begin
+            // Lock out new keys until current key is completely released and stable
+            if (!key_pressed) begin
+                timer_rst  = 1'b1;
+                // Require a debounced release before returning to IDLE
+                if (timer_expired) begin
+                    next_state = ST_IDLE;
+                end
+            end else begin
+                timer_rst = 1'b1; // Keep resetting timer while key is still held
+            end
+        end
+
+        default: next_state = ST_IDLE;
+    endcase
+end</code></pre>
+<p>endmodule</p>
+<p>// SystemVerilog Keypad One-Shot Register &amp; Debouncer // Target: Lattice iCE40 UP5K (or general FPGA synthesizable)</p>
+<p>module keypad_oneshot #( parameter integer CLK_FREQ_HZ = 12_000_000, // Default 12 MHz iCE40 internal oscillator parameter integer DEBOUNCE_MS = 10 // Debounce settling time in ms )( input logic clk, input logic rst_n, // Active-low asynchronous reset input logic key_valid, // Driven high by scanner when a key is detected input logic [3:0] raw_key_code, // Current key code output from scanner</p>
+<pre><code>output logic [3:0] key_code,       // Stable registered key code
+output logic       new_key_pulse   // High for exactly 1 clock cycle on valid key press</code></pre>
+<p>);</p>
+<pre><code>// Calculate counter terminal count based on clock frequency
+localparam integer DEBOUNCE_CYCLES = (CLK_FREQ_HZ / 1000) * DEBOUNCE_MS;
+localparam integer COUNTER_WIDTH  = $clog2(DEBOUNCE_CYCLES);
+
+// State Encoding
+typedef enum logic [1:0] {
+    ST_IDLE      = 2'b00, // Waiting for a key press
+    ST_DEBOUNCE  = 2'b01, // Key detected; waiting for contacts to settle
+    ST_PRESS_OUT = 2'b10, // Pulse registered; waiting for full release
+    ST_RELEASE   = 2'b11  // Key released; waiting for release bounce to settle
+} state_e;
+
+state_e current_state, next_state;
+
+// Internal Registers
+logic [COUNTER_WIDTH-1:0] timer;
+logic                     timer_expired;
+logic [3:0]               latched_key;
+
+assign timer_expired = (timer &gt;= (DEBOUNCE_CYCLES - 1));
+
+// -------------------------------------------------------------------------
+// 1. Debounce Timer Register
+// -------------------------------------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        timer &lt;= '0;
+    end else begin
+        if (current_state == ST_DEBOUNCE || current_state == ST_RELEASE) begin
+            if (!timer_expired) begin
+                timer &lt;= timer + 1'b1;
+            end
+        end else begin
+            timer &lt;= '0;
+        end
+    end
+end
+
+// -------------------------------------------------------------------------
+// 2. State Transition Register
+// -------------------------------------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        current_state &lt;= ST_IDLE;
+    end else begin
+        current_state &lt;= next_state;
+    end
+end
+
+// -------------------------------------------------------------------------
+// 3. Next State Logic (Combinational)
+// -------------------------------------------------------------------------
+always_comb begin
+    next_state = current_state;
+
+    case (current_state)
+        ST_IDLE: begin
+            if (key_valid) begin
+                next_state = ST_DEBOUNCE;
+            end
+        end
+
+        ST_DEBOUNCE: begin
+            if (!key_valid) begin
+                // False trigger or bounce back low
+                next_state = ST_IDLE;
+            end else if (timer_expired) begin
+                // Press verified
+                next_state = ST_PRESS_OUT;
+            end
+        end
+
+        ST_PRESS_OUT: begin
+            if (!key_valid) begin
+                // Key released; debounce release phase
+                next_state = ST_RELEASE;
+            end
+        end
+
+        ST_RELEASE: begin
+            if (key_valid) begin
+                // Re-bounce or key still held
+                next_state = ST_PRESS_OUT;
+            end else if (timer_expired) begin
+                // Fully released &amp; settled
+                next_state = ST_IDLE;
+            end
+        end
+
+        default: next_state = ST_IDLE;
+    endcase
+end
+
+// -------------------------------------------------------------------------
+// 4. Glitch-Free Registered Outputs &amp; Data Latching
+// -------------------------------------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        latched_key   &lt;= 4'h0;
+        new_key_pulse &lt;= 1'b0;
+    end else begin
+        // Default single-cycle pulse low
+        new_key_pulse &lt;= 1'b0;
+
+        // Latch key and fire one-shot pulse on successful press debounce transition
+        if (current_state == ST_DEBOUNCE &amp;&amp; next_state == ST_PRESS_OUT) begin
+            latched_key   &lt;= raw_key_code;
+            new_key_pulse &lt;= 1'b1;
+        end
+    end
+end
+
+assign key_code = latched_key;</code></pre>
+<p>endmodule</p>
+</div>
+</div>
+</div>
+<p>The output synthesized correctly. This output is very different from what I would make design wise. It doesn’t seem to do anything crazy technical though.</p>
+<p>Prompt 2a:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see prompt
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“Target device: Lattice iCE40 UP5K FPGA.</p>
+<p>Overall Goal: Write SystemVerilog to scan a 4x4 matrix keypad and display the last two hex keys pressed on a dual 7 segment display.</p>
+<p>Current Goal: Write a synthesizable SystemVerilog module that produces a one‑shot registration signal for the keypad system. Behavior:</p>
+<p>When a key press is first detected, capture the current key code and assert a single‑cycle “new key” pulse. While any key remains pressed, do not accept additional keys. Only after keys are released should a subsequent press be recognized. This should handle debouncing of the keys. Implement as a small synchronous FSM with enumerated states and glitch‑free outputs. Keep names and interfaces reasonable; do not assume any hidden modules beyond what you define here.”</p>
+</div>
+</div>
+</div>
+<p>Prompt 2b:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see prompt
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“Target device: Lattice iCE40 UP5K FPGA.</p>
+<p>Write a synthesizable SystemVerilog module that cycles through keypad columns (active‑low, one at a time) and samples rows (active‑low) to detect a single key at a time. Behavior:</p>
+<p>Iterate columns at a suitable scan rate derived from the divided clock and sample rows. When a key is detected, report a stable key code consistent with a standard 4x4 keypad layout and maintain it while the key remains pressed. Provide a boolean signal indicating whether any key is currently pressed. Use clean state encoding and synchronous logic; avoid combinational feedback and latches.”</p>
+</div>
+</div>
+</div>
+<p>Prompt 2c:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see prompt
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“Target device: Lattice iCE40 UP5K FPGA with internal oscillator as the root clock source.</p>
+<p>Write a top‑level SystemVerilog module that instantiates the scanner and one‑shot modules, shifts the last two keys (older ← most recent; most recent ← new), and drives a multiplexed two‑digit seven‑segment display. Requirements:</p>
+<p>Update the displayed digits only when a new key is registered. Ensure equal apparent brightness and no visible flicker. Keep all logic synthesizable and synchronous; use idiomatic SystemVerilog constructs. Provide any small clock‑enable or divider logic you need. You can also assume that a sevenSegment module exists that takes a 4 bit input and outputs the 7 segments.”</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see the AI output:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>module keypad_scanner #( parameter integer CLK_FREQ_HZ = 12_000_000, // Default 12 MHz internal oscillator parameter integer SCAN_RATE_HZ = 1_000 // Column scan frequency (1 kHz per step) )( input logic clk, input logic rst_n,</p>
+<pre><code>// Hardware Keypad Pins (Active-Low)
+// Note: Configure kp_rows as inputs with internal pull-ups in physical constraints (.pcf)
+input  logic [3:0] kp_rows,       // Active-Low row inputs
+output logic [3:0] kp_cols,       // Active-Low column drive outputs
+
+// Interface to One-Shot / Keypad Logic
+output logic [3:0] raw_key_code,  // Decoded 4-bit hex value (0x0 to 0xF)
+output logic       key_pressed    // High when ANY key is currently detected</code></pre>
+<p>);</p>
+<pre><code>// -------------------------------------------------------------------------
+// 1. Clock Divider for Column Scanning (~1 kHz)
+// -------------------------------------------------------------------------
+localparam integer CLK_DIV_LIMIT = CLK_FREQ_HZ / SCAN_RATE_HZ;
+localparam integer DIV_WIDTH     = $clog2(CLK_DIV_LIMIT);
+
+logic [DIV_WIDTH-1:0] clk_div;
+logic                 scan_tick;
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        clk_div   &lt;= '0;
+        scan_tick &lt;= 1'b0;
+    end else if (clk_div &gt;= CLK_DIV_LIMIT - 1) begin
+        clk_div   &lt;= '0;
+        scan_tick &lt;= 1'b1;
+    end else begin
+        clk_div   &lt;= clk_div + 1'b1;
+        scan_tick &lt;= 1 me_b0;
+    end
+end
+
+// Fix typo in scan_tick zero assignment above
+// (Explicit register logic without bit syntax errors)
+
+// -------------------------------------------------------------------------
+// 2. Synchronizers for Asynchronous Row Inputs (2-Stage Flop)
+// -------------------------------------------------------------------------
+logic [3:0] rows_sync_0;
+logic [3:0] rows_sync_1;
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        rows_sync_0 &lt;= 4'hF;
+        rows_sync_1 &lt;= 4'hF;
+    end else begin
+        rows_sync_0 &lt;= kp_rows;
+        rows_sync_1 &lt;= rows_sync_0;
+    end
+end
+
+// -------------------------------------------------------------------------
+// 3. Column Ring Counter State Machine
+// -------------------------------------------------------------------------
+typedef enum logic [1:0] {
+    COL_0 = 2'b00,
+    COL_1 = 2'b01,
+    COL_2 = 2'b10,
+    COL_3 = 2'b11
+} col_state_t;
+
+col_state_t current_col;
+
+// Output active-low column selection based on current ring state
+always_comb begin
+    case (current_col)
+        COL_0:   kp_cols = 4'b1110;
+        COL_1:   kp_cols = 4'b1101;
+        COL_2:   kp_cols = 4'b1011;
+        COL_3:   kp_cols = 4'b0111;
+        default: kp_cols = 4'b1111;
+    endcase
+end
+
+// -------------------------------------------------------------------------
+// 4. Matrix Scanning &amp; Decode Logic
+// -------------------------------------------------------------------------
+logic [3:0] decoded_code;
+logic       row_active;
+
+// Detect if any row is pulled low (active-low signal)
+assign row_active = (rows_sync_1 != 4'b1111);
+
+// Map current active (Col, Row) intersection to 4-bit Hex code
+always_comb begin
+    decoded_code = 4'h0;
+    case (current_col)
+        COL_0: begin
+            case (rows_sync_1)
+                4'b1110: decoded_code = 4'h1; // Row 0
+                4'b1101: decoded_code = 4'h4; // Row 1
+                4'b1011: decoded_code = 4'h7; // Row 2
+                4'b0111: decoded_code = 4'hE; // Row 3 (*)
+                default: decoded_code = 4'h0;
+            endcase
+        end
+        COL_1: begin
+            case (rows_sync_1)
+                4'b1110: decoded_code = 4'h2; // Row 0
+                4'b1101: decoded_code = 4'h5; // Row 1
+                4'b1011: decoded_code = 4'h8; // Row 2
+                4'b0111: decoded_code = 4'h0; // Row 3 (0)
+                default: decoded_code = 4'h0;
+            endcase
+        end
+        COL_2: begin
+            case (rows_sync_1)
+                4'b1110: decoded_code = 4'h3; // Row 0
+                4'b1101: decoded_code = 4 me_h6; // Row 1
+                4'b1011: decoded_code = 4'h9; // Row 2
+                4'b0111: decoded_code = 4'hF; // Row 3 (#)
+                default: decoded_code = 4'h0;
+            endcase
+        end
+        COL_3: begin
+            case (rows_sync_1)
+                4'b1110: decoded_code = 4'hA; // Row 0
+                4'b1101: decoded_code = 4'hB; // Row 1
+                4'b1011: decoded_code = 4'hC; // Row 2
+                4'b0111: decoded_code = 4'hD; // Row 3
+                default: decoded_code = 4'h0;
+            endcase
+        end
+        default: decoded_code = 4'h0;
+    endcase
+end
+
+// -------------------------------------------------------------------------
+// 5. Sequential Update &amp; Key Output Hold Logic
+// -------------------------------------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        current_col  &lt;= COL_0;
+        raw_key_code &lt;= 4'h0;
+        key_pressed  &lt;= 1'b0;
+    end else begin
+        if (row_active) begin
+            // Lock onto detected key press and update key output
+            key_pressed  &lt;= 1'b1;
+            raw_key_code &lt;= decoded_code;
+            // Pause column scanning while key remains held
+        end else begin
+            key_pressed &lt;= 1'b0;
+            // Continue cycling through columns on scan ticks
+            if (scan_tick) begin
+                current_col &lt;= col_state_t'(current_col + 1'b1);
+            end
+        end
+    end
+end</code></pre>
+<p>endmodule</p>
+<p>module keypad_top ( // External Reset Pin (Active-Low) input logic rst_n,</p>
+<pre><code>// Hardware Keypad Matrix Pins
+input  logic [3:0] kp_rows,      // Active-Low row inputs (requires internal pull-ups in .pcf)
+output logic [3:0] kp_cols,      // Active-Low column outputs
+
+// Multiplexed Dual 7-Segment Display Pins
+output logic [6:0] seg,          // Segment outputs {g, f, e, d, c, b, a}
+output logic [1:0] digit_sel     // Digit select lines (Active-Low: [1]=Digit 1/Left, [0]=Digit 0/Right)</code></pre>
+<p>);</p>
+<pre><code>// =========================================================================
+// 1. iCE40 UP5K High-Speed Internal Oscillator (HSOSC)
+// =========================================================================
+logic clk;
+
+// Direct instantiation of Lattice iCE40 UP5K Hard IP
+HSOSC #(
+    .CLKHF_DIV("0b01") // Divide 48 MHz by 4 -&gt; 12 MHz root clock
+) hsosc_inst (
+    .CLKHFPU(1'b1),    // Power up oscillator
+    .CLKHFEN(1'b1),    // Enable oscillator output
+    .CLKHF  (clk)      // 12 MHz clock output
+);
+
+// =========================================================================
+// 2. Keypad Submodule Instantiations
+// =========================================================================
+logic [3:0] raw_key_code;
+logic       raw_key_pressed;
+
+logic [3:0] registered_key;
+logic       key_valid;
+
+// Matrix Scanner Module
+keypad_scanner #(
+    .CLK_FREQ_HZ (12_000_000),
+    .SCAN_RATE_HZ(1_000)
+) u_keypad_scanner (
+    .clk         (clk),
+    .rst_n       (rst_n),
+    .kp_rows     (kp_rows),
+    .kp_cols     (kp_cols),
+    .raw_key_code(raw_key_code),
+    .key_pressed (raw_key_pressed)
+);
+
+// One-Shot &amp; Debounce Registration Module
+keypad_one_shot #(
+    .CLK_FREQ_HZ (12_000_000),
+    .DEBOUNCE_MS (10)
+) u_keypad_one_shot (
+    .clk         (clk),
+    .rst_n       (rst_n),
+    .key_pressed (raw_key_pressed),
+    .raw_key_code(raw_key_code),
+    .key_code    (registered_key),
+    .key_valid   (key_valid)
+);
+
+// =========================================================================
+// 3. Shift Register for Last Two Keys
+// =========================================================================
+logic [3:0] digit_0; // Most recent key (Right Digit)
+logic [3:0] digit_1; // Older key (Left Digit)
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        digit_0 &lt;= 4'h0;
+        digit_1 &lt;= 4'h0;
+    end else if (key_valid) begin
+        digit_1 &lt;= digit_0;        // Shift old key to left digit
+        digit_0 &lt;= registered_key; // Load new key into right digit
+    end
+end
+
+// =========================================================================
+// 4. Seven-Segment Multiplexing &amp; Display Driver
+// =========================================================================
+// Refresh rate target: ~500 Hz (~1 ms per digit for 50% duty cycle)
+// 12 MHz / 12,000 = 1 kHz refresh toggle tick
+localparam integer REFRESH_DIV_LIMIT = 12_000;
+localparam integer REFRESH_WIDTH     = $clog2(REFRESH_DIV_LIMIT);
+
+logic [REFRESH_WIDTH-1:0] refresh_cnt;
+logic                     active_digit; // 0 = Digit 0 (Right), 1 = Digit 1 (Left)
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        refresh_cnt  &lt;= '0;
+        active_digit &lt;= 1'b0;
+    end else if (refresh_cnt &gt;= REFRESH_DIV_LIMIT - 1) begin
+        refresh_cnt  &lt;= '0;
+        active_digit &lt;= ~active_digit; // Alternate between digits
+    end else begin
+        refresh_cnt  &lt;= refresh_cnt + 1'b1;
+    end
+end
+
+// Mux digit values and drive active-low digit select lines
+logic [3:0] current_nibble;
+
+always_comb begin
+    if (active_digit == 1'b0) begin
+        current_nibble = digit_0;
+        digit_sel      = 2'b10; // Enable Digit 0 (Active-Low)
+    end else begin
+        current_nibble = digit_1;
+        digit_sel      = 2'b01; // Enable Digit 1 (Active-Low)
+    end
+end
+
+// Instantiation of Seven Segment Decoder Module
+sevenSegment u_sevenSegment (
+    .bcd    (current_nibble),
+    .segment(seg)
+);</code></pre>
+<p>endmodule</p>
+</div>
+</div>
+</div>
+<p><img src="images/ai_b_err.png" class="img-fluid" alt="Error from synthesis"> There was a very strange error where a hex number was made incorrectly. Something similar happened last week, so I think gemini might have some weird post processing that causes this. Its still very different from my implementation. Idk what a nibble would even be.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Jebeandiah\.github\.io\/hmc-e155-portfolio\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
