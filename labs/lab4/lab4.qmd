@@ -28,7 +28,7 @@ The source code and all figures for the project can be found in the associated [
 ### Schematic
 ::: {.callout-note collapse="true"}
 ## Expand to see schematic
-![Schematic of the physical circuit for the displays](images/schem.png)
+![Schematic of the amplifer circuit used to drive the speaker](images/schem.png)
 
 :::
 
