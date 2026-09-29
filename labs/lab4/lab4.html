@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Benjamin Lertwachara">
+<meta name="dcterms.date" content="2026-09-28">
 
-<title>Labs – E155 Portfolio</title>
+<title>Lab 4 Report – E155 Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +31,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -135,7 +106,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -145,7 +116,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">E155 Portfolio</span>
     </a>
   </div>
@@ -156,15 +127,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./labs.html" aria-current="page"> 
+    <a class="nav-link" href="../../labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
 </ul>
@@ -178,22 +149,51 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a>
+  <ul class="collapse">
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a>
+  <ul class="collapse">
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Labs</h1>
+<h1 class="title">Lab 4 Report</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Benjamin Lertwachara </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 28, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -203,115 +203,127 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this lab, square wave generation was implmented on a STM32L432KC microcontroller using a hardware timer to toggle a gpio pin. Modifying the arr register of the timer allowed us to control the frequency of thee output wavee, which was combined with an aditional timer to play specific tones for specific durations. ## Hardware</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/assembled.jpg" class="img-fluid figure-img"></p>
+<figcaption>Assembled breadboard breakout board with dual 7 segment display and keypad</figcaption>
+</figure>
+</div>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
+<p>I just used TIM6 and TIM7 because they seemed easy to use.</p>
+<p>The design of the amplifier circuit I also just took from the LM386 datasheet.</p>
+<p>My wait function sets the prescaler adaptively depending on whether you need ms or micros level accuracy. If you input micros cleanly describes a ms duration, it will use a prescaler of 4000, resulting in an effective clock of 1khz. Otherwise, the prescaler it just 1 for an effective clock of 4mhz. I did this since the tmax of a uint16_t did not allow for the counter to count to the note durations with a 4mhz effective clock.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
+<p>The source code and all figures for the project can be found in the associated <a href="https://github.com/Jebeandiah/e155lab4/tree/main">Github repository</a></p>
+<section id="schematic" class="level3">
+<h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see schematic
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/schem.png" class="img-fluid figure-img"></p>
+<figcaption>Schematic of the amplifer circuit used to drive the speaker</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculations" class="level3">
+<h3 class="anchored" data-anchor-id="calculations">Calculations</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see calculations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>At 4mhz, the desired max count for a specific frequency is calculated like so: counts = FLOOR(500,000/ROUND(freq))*4-1 (Rounded since note entries are ints, and floored for integer division)</p>
+<p>This translate to a resultant frequency of: resultant freq = 4mhz/(counts+1)/2 (Divided by 2 since we are toggling twice per period)</p>
+<p>I used these formulas to determine the percent error in the actual frequencies used in Fur Elise:</p>
+<p>Those results can be found in the linked spreadsheet: <a href="https://docs.google.com/spreadsheets/d/1bdiveE-bJ4azX_MM3s40cBUJDy62LTZ2wcs9B6Dgh84/edit?usp=sharing">Google Sheet</a></p>
+<p><img src="images/freqcalcs.png" class="img-fluid"></p>
+<p>All resultant frequencies were well within 1% error of the desired frequency. If you don’t consider the beforehand rounding, you don’t need to calculate individual errors since the counter should be accurate toa certain factor, in my case to the microseconds. Around 220hz that has a worst case error of: <span class="math inline">\((10^{-6})*220*100*2 = 0.044\)</span>%</p>
+<p>And at 1khz: <span class="math inline">\((10^{-6})*1000*100*2 = 0.2\)</span>%</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<p>The design met all intended design objectives.</p>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
+<p>This lab took about 15 hours. Most of my time was spent rewriting my code to better fit the three FSM types.</p>
+<p>The specs were bad. I don’t understand how specs that were derived from clear requirements in someone’s head end up missing so many critical details. Why am I trying to follow these specs when there are countless caveats and interactions with things said from class that affect how they should be implemented. I think the worst offender this week were the specs concerning the block diagrams. I don’t think a single person will make their diagrams as the specs seem to dictate, and those specs only start to make sense in conjunction with information that Prof.&nbsp;Spencer presented on the lab check in day. Also, I don’t remember if there were other resources, but the lab report template has an incomplete block diagram and schematic.</p>
+<p>I also think the amount I learn during lab really drops off after a certain amount of time. For the first 8 or so hours, I am engaged and trying new things and trying to improve. Past that, my focus really shifts to just checking off boxes. At that point, I was restructuring my verilog, finishing up test benches, and doing all the diagrams. I think most of these deliverables ended up being decent, but I really did not care about doing them well or deeply learning about how they interacted with my system.</p>
+</section>
+<section id="ai-prototype-summary" class="level3">
+<h3 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h3>
+<p>Prompt 1:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see prompt:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“What timers should I use on the STM32L432KC to generate frequencies ranging from 220Hz to 1kHz? What’s the best choice of timer if I want to easily connect it to a GPIO pin? What formulae are relevant, and what registers need to be set to configure them properly?”</p>
+</div>
+</div>
+</div>
+<p>Model: “gemini pro 3.1”</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Expand to see AI output:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For generating hardware-timed frequencies between 220Hz and 1kHz on the STM32L432KC, you must use a timer that includes physical Output Compare (OC) channels routed to the microcontroller’s Alternate Function (AF) multiplexer.Basic timers (TIM6 and TIM7) lack physical output pins and cannot be used for this. You should choose from the Advanced-Control (TIM1) or General-Purpose (TIM2, TIM15, TIM16) timers.The Best Choice: TIM2TIM2 is the optimal choice for this frequency range. Unlike the 16-bit timers on this MCU, TIM2 is a 32-bit timer.Generating a low frequency like 220Hz from a high-speed system clock (e.g., 80 MHz) requires a large division factor. On a 16-bit timer, you are forced to use a hardware Prescaler to slow the clock down before it hits the timer, as the 16-bit Auto-Reload Register caps at 65,535. With TIM2’s 32-bit register (capping at over 4.2 billion), you can leave the Prescaler at 0 and simply dump the raw division ratio straight into the Auto-Reload Register, yielding much higher frequency resolution.TIM2 is also extremely easy to route to GPIOs. For example, configuring PA0 or PA5 to Alternate Function 1 (AF1) maps them directly to TIM2_CH1.Relevant FormulaeTo configure the frequency, you need to calculate the values for the Prescaler (PSC) and the Auto-Reload Register (ARR). The timer triggers an update event and resets when it reaches the ARR value.The output frequency <span class="math inline">\(f_{out}\)</span> is determined by:<span class="math display">\[f_{out} = \frac{f_{clk}}{(PSC + 1) \times (ARR + 1)}\]</span>Where:<span class="math inline">\(f_{clk}\)</span> is the frequency of the APB clock feeding the timer (up to 80 MHz).<span class="math inline">\(PSC\)</span> is the 16-bit Prescaler register value.<span class="math inline">\(ARR\)</span> is the 32-bit (for TIM2) or 16-bit Auto-Reload Register value.If you want to generate a standard 50% duty cycle square wave (PWM), you must configure the Capture/Compare Register (CCR) to exactly half of the ARR value:<span class="math display">\[CCR = \frac{ARR}{2}\]</span>Tip for 16-bit timers (TIM15/16): Set the <span class="math inline">\(PSC\)</span> to <span class="math inline">\((f_{clk}\text{ in MHz} - 1)\)</span> to create a 1 MHz timer clock. Then, <span class="math inline">\(ARR = (\frac{1,000,000}{f_{out}}) - 1\)</span>.Required Register ConfigurationsTo output a hardware-controlled square wave on a GPIO pin (e.g., routing TIM2_CH1 to PA0), configure the following peripheral registers in order:1. Clock Enable RegistersRCC_APB1ENR1: Set the TIM2EN bit to enable the clock to TIM2.RCC_AHB2ENR: Set the GPIOAEN bit to enable the clock to the GPIOA port.2. GPIO Configuration Registers (GPIOA)GPIOx_MODER: Clear the bits for the target pin (PA0) and set them to 0b10 to enable Alternate Function Mode.GPIOx_AFRL (or AFRH): Set the Alternate Function selection multiplexer. For PA0 to act as TIM2_CH1, set the 4-bit AF field for Pin 0 to 0b0001 (AF1).3. Timer Time-Base Registers (TIM2)TIMx_PSC: Set your calculated Prescaler value.TIMx_ARR: Set your calculated Auto-Reload value to define the specific 220Hz – 1kHz frequency.4. Timer Output Compare/PWM Registers (TIM2)TIMx_CCMR1: Configure Channel 1 as an output and set its behavior.Set the OC1M (Output Compare 1 Mode) bits to 0b110 (PWM Mode 1). This pulls the pin HIGH while the counter is below CCR1, and LOW when it is above.Set the OC1PE bit to enable preload on the CCR1 register (ensures clean duty cycle transitions if you change the frequency dynamically).TIMx_CCR1: Write <span class="math inline">\(ARR / 2\)</span> to this register to set a 50% duty cycle.TIMx_CCER: Set the CC1E (Capture/Compare 1 Output Enable) bit to physically connect the timer’s internal signal to the GPIO pin.5. Start the TimerTIMx_CR1: Set the CEN (Counter Enable) bit to start the timer.(Note: If you decide to use TIM1, TIM15, or TIM16 instead of TIM2, you must also set the MOE (Main Output Enable) bit in the TIMx_BDTR (Break and Dead-Time Register) before the signal will physically appear on the pin.)</p>
+</div>
+</div>
+</div>
+<p>I chose to use the simple timers that can’t directly generate PWM signals on the GPIO, so the AI’s thought process is quite different than mine. I do know a lot of people did choose to use TIM2, so they probably went through a similar thought process. It would have been nice to have a 32 bit counter and ARR, so even without using the PWM capability I can see why it would choose this timer.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1790578800000" data-listing-file-modified-sort="1790655357967" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1320">
-<div class="thumbnail"><a href="./labs/lab4/lab4.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="labs\lab4\images\assembled.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./labs/lab4/lab4.html" class="no-external">Lab 4 Report</a>
-</h3>
-<div class="delink listing-description"><a href="./labs/lab4/lab4.html" class="no-external">
-In this lab, square wave generation was implmented on a STM32L432KC microcontroller using a hardware timer to toggle a gpio pin. Modifying the arr register of the timer…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./labs/lab4/lab4.html" class="no-external">
-<div class="listing-date">
-Sep 28, 2026
-</div>
-<div class="listing-author">
-Benjamin Lertwachara
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1790146800000" data-listing-file-modified-sort="1790202208521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7366">
-<div class="thumbnail"><a href="./labs/lab3/lab3.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="labs\lab3\images\assembled.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./labs/lab3/lab3.html" class="no-external">Lab 3 Report</a>
-</h3>
-<div class="delink listing-description"><a href="./labs/lab3/lab3.html" class="no-external">
-In this lab, reading inputs through scanning a 4x4 keypad was implemented, with values displayed to a multiplexed dual seven segment display. Debouncing, multipress…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./labs/lab3/lab3.html" class="no-external">
-<div class="listing-date">
-Sep 23, 2026
-</div>
-<div class="listing-author">
-Benjamin Lertwachara
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1789455600000" data-listing-file-modified-sort="1789597582560" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2170">
-<div class="thumbnail"><a href="./labs/lab2/lab2.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="labs\lab2\images\assembled.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./labs/lab2/lab2.html" class="no-external">Lab 2 Report</a>
-</h3>
-<div class="delink listing-description"><a href="./labs/lab2/lab2.html" class="no-external">
-In this lab, time multiplexing was implemented to display distinct values on two 7 segment displays using only 9 signal lines. A 4x4 keypad was also implemented with a…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./labs/lab2/lab2.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2026
-</div>
-<div class="listing-author">
-Benjamin Lertwachara
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1788850800000" data-listing-file-modified-sort="1788993901881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1336">
-<div class="thumbnail"><a href="./labs/lab1/lab1.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="labs\lab1\images\devboardassembly.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./labs/lab1/lab1.html" class="no-external">Lab 1 Report</a>
-</h3>
-<div class="delink listing-description"><a href="./labs/lab1/lab1.html" class="no-external">
-In this lab, the dev board for e155 was assembled by soldering surface mount and through hole components and a design was implemented on the FPGA (upduino) to read switches…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./labs/lab1/lab1.html" class="no-external">
-<div class="listing-date">
-Sep 8, 2026
-</div>
-<div class="listing-author">
-Benjamin Lertwachara
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
