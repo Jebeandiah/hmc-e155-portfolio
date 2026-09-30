@@ -205,17 +205,11 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this lab, square wave generation was implmented on a STM32L432KC microcontroller using a hardware timer to toggle a gpio pin. Modifying the arr register of the timer allowed us to control the frequency of thee output wavee, which was combined with an aditional timer to play specific tones for specific durations. ## Hardware</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/assembled.jpg" class="img-fluid figure-img"></p>
-<figcaption>Assembled breadboard breakout board with dual 7 segment display and keypad</figcaption>
-</figure>
-</div>
+<p>In this lab, square wave generation was implmented on a STM32L432KC microcontroller using a hardware timer to toggle a gpio pin. Modifying the arr register of the timer allowed us to control the frequency of thee output wavee, which was combined with an aditional timer to play specific tones for specific durations.</p>
 </section>
 <section id="design-and-testing-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
-<p>I just used TIM6 and TIM7 because they seemed easy to use.</p>
+<p>I just used TIM6 and TIM7 because they seemed easy to use. This meant that I had to generate the 50% duty PWM signal in software by observing the UIF bit in their SR registers and restarting the timer when that flag got set.</p>
 <p>The design of the amplifier circuit I also just took from the LM386 datasheet.</p>
 <p>My wait function sets the prescaler adaptively depending on whether you need ms or micros level accuracy. If you input a micros value that cleanly describes a ms duration, it will use a prescaler of 4000, resulting in an effective clock of 1khz. Otherwise, the prescaler it just 1 for an effective clock of 4mhz. I did this since the tmax of a uint16_t did not allow for the counter to count to the note durations with a 4mhz effective clock.</p>
 </section>
@@ -277,9 +271,7 @@ window.Quarto = {
 <p>The design met all intended design objectives.</p>
 <section id="reflection" class="level3">
 <h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
-<p>This lab took about 15 hours. Most of my time was spent rewriting my code to better fit the three FSM types.</p>
-<p>The specs were bad. I don’t understand how specs that were derived from clear requirements in someone’s head end up missing so many critical details. Why am I trying to follow these specs when there are countless caveats and interactions with things said from class that affect how they should be implemented. I think the worst offender this week were the specs concerning the block diagrams. I don’t think a single person will make their diagrams as the specs seem to dictate, and those specs only start to make sense in conjunction with information that Prof.&nbsp;Spencer presented on the lab check in day. Also, I don’t remember if there were other resources, but the lab report template has an incomplete block diagram and schematic.</p>
-<p>I also think the amount I learn during lab really drops off after a certain amount of time. For the first 8 or so hours, I am engaged and trying new things and trying to improve. Past that, my focus really shifts to just checking off boxes. At that point, I was restructuring my verilog, finishing up test benches, and doing all the diagrams. I think most of these deliverables ended up being decent, but I really did not care about doing them well or deeply learning about how they interacted with my system.</p>
+<p>This lab took about 15 hours. Most of my time was spent reading through documentation looking for adresses. Things worked out pretty well for me, but I still think better organization and pacing of resources would have made the lab more straightforward.</p>
 </section>
 <section id="ai-prototype-summary" class="level3">
 <h3 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h3>
