@@ -217,7 +217,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
 <p>I just used TIM6 and TIM7 because they seemed easy to use.</p>
 <p>The design of the amplifier circuit I also just took from the LM386 datasheet.</p>
-<p>My wait function sets the prescaler adaptively depending on whether you need ms or micros level accuracy. If you input micros cleanly describes a ms duration, it will use a prescaler of 4000, resulting in an effective clock of 1khz. Otherwise, the prescaler it just 1 for an effective clock of 4mhz. I did this since the tmax of a uint16_t did not allow for the counter to count to the note durations with a 4mhz effective clock.</p>
+<p>My wait function sets the prescaler adaptively depending on whether you need ms or micros level accuracy. If you input a micros value that cleanly describes a ms duration, it will use a prescaler of 4000, resulting in an effective clock of 1khz. Otherwise, the prescaler it just 1 for an effective clock of 4mhz. I did this since the tmax of a uint16_t did not allow for the counter to count to the note durations with a 4mhz effective clock.</p>
 </section>
 <section id="technical-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
@@ -265,8 +265,8 @@ window.Quarto = {
 <p>I used these formulas to determine the percent error in the actual frequencies used in Fur Elise:</p>
 <p>Those results can be found in the linked spreadsheet: <a href="https://docs.google.com/spreadsheets/d/1bdiveE-bJ4azX_MM3s40cBUJDy62LTZ2wcs9B6Dgh84/edit?usp=sharing">Google Sheet</a></p>
 <p><img src="images/freqcalcs.png" class="img-fluid"></p>
-<p>All resultant frequencies were well within 1% error of the desired frequency. If you don’t consider the beforehand rounding, you don’t need to calculate individual errors since the counter should be accurate toa certain factor, in my case to the microseconds. Around 220hz that has a worst case error of: <span class="math inline">\((10^{-6})*220*100*2 = 0.044\)</span>%</p>
-<p>And at 1khz: <span class="math inline">\((10^{-6})*1000*100*2 = 0.2\)</span>%</p>
+<p>All resultant frequencies were well within 1% error of the desired frequency. If you don’t consider the beforehand rounding and the notes higher than 1khz, you don’t need to calculate individual errors since the counter should be accurate to a certain factor, in my case to the microseconds. Around 220hz that has a worst case error of: <span class="math inline">\((10^{-6})*220*100*2 = 0.044\)</span>%</p>
+<p>And around 1khz: <span class="math inline">\((10^{-6})*1000*100*2 = 0.2\)</span>%</p>
 </div>
 </div>
 </div>
