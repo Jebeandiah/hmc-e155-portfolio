@@ -31,11 +31,9 @@ The source code and all figures for the project can be found in the associated [
 ::: {.callout-note collapse="true"}
 ## Expand to see calculations
 
-Raw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two's complement:
+Raw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two's complement, with the most significant byte being the integer part.
 
-![](images/table.png)
-
-To determine the scalar to produce a decimal point in the proper place:
+To determine a scalar I can use to produce a decimal point in the proper place:
 
 $$k = \frac{1}{2^8} = \frac{1}{256} $$
 
