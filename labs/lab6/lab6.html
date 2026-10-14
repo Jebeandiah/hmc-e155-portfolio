@@ -253,9 +253,8 @@ window.Quarto = {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Raw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two’s complement:</p>
-<p><img src="images/table.png" class="img-fluid"></p>
-<p>To determine the scalar to produce a decimal point in the proper place:</p>
+<p>Raw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two’s complement, with the most significant byte being the integer part.</p>
+<p>To determine a scalar I can use to produce a decimal point in the proper place:</p>
 <p><span class="math display">\[k = \frac{1}{2^8} = \frac{1}{256} \]</span></p>
 </div>
 </div>

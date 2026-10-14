@@ -32,7 +32,7 @@
     "href": "labs/lab6/lab6.html#technical-documentation",
     "title": "Lab 6 Report",
     "section": "Technical Documentation",
-    "text": "Technical Documentation\nThe source code and all figures for the project can be found in the associated Github repository\n\nSchematic\n\n\n\n\n\n\nNoteExpand to see schematic\n\n\n\n\n\n\n\n\nSchematic of the MCU, temperature sensor, and wifi module\n\n\n\n\n\n\n\nCalculations\n\n\n\n\n\n\nNoteExpand to see calculations\n\n\n\n\n\nRaw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two’s complement:\n\nTo determine the scalar to produce a decimal point in the proper place:\n\\[k = \\frac{1}{2^8} = \\frac{1}{256} \\]"
+    "text": "Technical Documentation\nThe source code and all figures for the project can be found in the associated Github repository\n\nSchematic\n\n\n\n\n\n\nNoteExpand to see schematic\n\n\n\n\n\n\n\n\nSchematic of the MCU, temperature sensor, and wifi module\n\n\n\n\n\n\n\nCalculations\n\n\n\n\n\n\nNoteExpand to see calculations\n\n\n\n\n\nRaw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two’s complement, with the most significant byte being the integer part.\nTo determine a scalar I can use to produce a decimal point in the proper place:\n\\[k = \\frac{1}{2^8} = \\frac{1}{256} \\]"
   },
   {
     "objectID": "labs/lab6/lab6.html#results-and-discussion",
