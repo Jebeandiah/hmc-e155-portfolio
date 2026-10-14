@@ -74,6 +74,7 @@ Model: "gemini flash 3.1"
 
 ![](images/aipage.png)
 
+:::
 
 It looks very nice. It did also use JS which should be fine, but maybe goes a bit outside of what the prompt was asking for.  
 
