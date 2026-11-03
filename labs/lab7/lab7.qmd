@@ -34,8 +34,6 @@ The source code and all figures for the project can be found in the associated [
 
 ::: {.callout-note collapse="true"}
 ## Expand to see waveforms
-Traces of a multi-byte burst read at addresses 1 and 2 (sends read command for address 1 and then the sensor auto-increments to address 2).  I used a clock polarity of 0, but datasheet says it can work with both polarities. The value returned was $0001011101010000_2$, which is 23.3125 C.
-
 ![Complete aes_spi testbench waveform](images/spi.png)
 ![End of aes_spi testbench waveform](images/spi1.png)
 ![Complete aes_core testbench waveform](images/core.png)
