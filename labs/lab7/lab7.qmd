@@ -41,7 +41,7 @@ The source code and all figures for the project can be found in the associated [
 :::
 
 
-The design met all intended design objectives for profficiency. 
+The design met all intended design objectives for profficiency, it did not fit on hardware since I only used the combinational sbox modules. 
 
 ### Reflection
 This lab took about 15 hours. Most of my time was spent fixing timing issues.
