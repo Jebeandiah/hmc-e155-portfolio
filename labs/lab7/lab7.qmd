@@ -34,10 +34,15 @@ The source code and all figures for the project can be found in the associated [
 
 ::: {.callout-note collapse="true"}
 ## Expand to see waveforms
+
 ![Complete aes_spi testbench waveform](images/spi.png)
+
 ![End of aes_spi testbench waveform](images/spi1.png)
+
 ![Complete aes_core testbench waveform](images/core.png)
+
 ![Complete sbox testbench waveform](images/sbox.png)
+
 :::
 
 
