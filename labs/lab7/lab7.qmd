@@ -144,7 +144,7 @@ endmodule
 
 :::
 
-It works, but is much different than my code. It makes use of "for" loops and "generate" statements so that it can accommadate different AES key counts and rounds.   
+It works, but is much different than my code. It makes use of "for" loops and "generate" statements so that it can accommadate different AES word counts and rounds.   
 
 Prompt 2:
 
