@@ -18,40 +18,35 @@ The source code and all figures for the project can be found in the associated [
 
 
 
-### Block Diagram
+### Block Diagrams
 ::: {.callout-note collapse="true"}
 ## Expand to see diagram
-![Schematic of the MCU, temperature sensor, and wifi module](images/schem.png)
+![Schematic of aes_core](images/blk.png)
+
+![Schematic of aescontroller](images/blk1.png)
+
+![Schematic of keyexpansion](images/blk2.png)
 
 :::
 
-### Calculations
-::: {.callout-note collapse="true"}
-## Expand to see calculations
 
-Raw temperature conversion: Based on the followeing table from the datasheet, the temperature is encoded as a sort of fixed-point value in two's complement, with the most significant byte being the integer part.
-
-To determine a scalar I can use to produce a decimal point in the proper place:
-
-$$k = \frac{1}{2^8} = \frac{1}{256} $$
-
-
-:::
 ## Results and Discussion
 
 ::: {.callout-note collapse="true"}
-## Expand to see SPI traces
+## Expand to see waveforms
 Traces of a multi-byte burst read at addresses 1 and 2 (sends read command for address 1 and then the sensor auto-increments to address 2).  I used a clock polarity of 0, but datasheet says it can work with both polarities. The value returned was $0001011101010000_2$, which is 23.3125 C.
 
-![](images/trace.jpg)
-
+![Complete aes_spi testbench waveform](images/spi.png)
+![End of aes_spi testbench waveform](images/spi1.png)
+![Complete aes_core testbench waveform](images/core.png)
+![Complete sbox testbench waveform](images/sbox.png)
 :::
 
 
-The design met all intended design objectives. 
+The design met all intended design objectives for profficiency. 
 
 ### Reflection
-This lab took about 12 hours. Most of my time was spent getting SPI to work. The oscilliscope was less helpful than I expected, as I think you can be pretty confident that you are sending data if your TX buffer is emptying. Maybe if the device you're interacting with has a more complex protocol, you might need to use the oscilliscope to see what the device is sending back.
+This lab took about 15 hours. Most of my time was spent fixing timing issues.
 
 ### AI Prototype Summary
 
@@ -59,7 +54,7 @@ Prompt 1:
 
 ::: {.callout-note collapse="true"}
 ## Expand to see prompt:
-"I’m making a web portal to interface with a temperature sensor. Create a HTML page that looks good and is intuitive to show the temperature, control an LED, and change the precision of the readout."
+"Write SystemVerilog HDL to implement the KeyExpansion logic described in the FIPS-197 uploaded document. The module should be purely combinational, using the previous key and current round number to calculate the next key. Assume other required modules (SubWord and RotWord) are already implemented."
 :::
 
 
@@ -68,93 +63,197 @@ Model: "gemini flash 3.1"
 ::: {.callout-note collapse="true"}
 ## Expand to see AI output:
 
-![](images/aipage.png)
+// Module: key_expansion_step
+// Purely combinational logic to generate the next round key from the previous round key
+// Supports AES-128 (Nk=4), AES-192 (Nk=6), and AES-256 (Nk=8) via parameters.
+
+module key_expansion_step #(
+    parameter int NK = 4  // Number of 32-bit words in key (4 for AES-128, 6 for AES-192, 8 for AES-256)
+) (
+    input  logic [31:0]           key_in  [0:NK-1], // Previous round key / key state
+    input  logic [3:0]            round,           // Current round number (1 to Nr)
+    output logic [31:0]           key_out [0:NK-1]  // Next round key / key state
+);
+
+    // Round Constant Lookup Table (Rcon[1..10])
+    function automatic logic [31:0] get_rcon(input logic [3:0] r);
+        case (r)
+            4'd1:  get_rcon = 32'h01_00_00_00;
+            4'd2:  get_rcon = 32'h02_00_00_00;
+            4'd3:  get_rcon = 32'h04_00_00_00;
+            4'd4:  get_rcon = 32'h08_00_00_00;
+            4'd5:  get_rcon = 32'h10_00_00_00;
+            4'd6:  get_rcon = 32'h20_00_00_00;
+            4'd7:  get_rcon = 32'h40_00_00_00;
+            4'd8:  get_rcon = 32'h80_00_00_00;
+            4'd9:  get_rcon = 32'h1b_00_00_00;
+            4'd10: get_rcon = 32'h36_00_00_00;
+            default: get_rcon = 32'h00_00_00_00;
+        endcase
+    endfunction
+
+    // Intermediate word declarations
+    logic [31:0] rot_out;
+    logic [31:0] sub_rot_out;
+    logic [31:0] sub_temp_out;
+    logic [31:0] temp [0:NK-1];
+
+    // Instantiate RotWord module for the word coming from key_in[NK-1]
+    RotWord u_rotword (
+        .in  (key_in[NK-1]),
+        .out (rot_out)
+    );
+
+    // Instantiate SubWord module following RotWord
+    SubWord u_subword_rot (
+        .in  (rot_out),
+        .out (sub_rot_out)
+    );
+
+    // Instantiate SubWord for AES-256 extra substitution step at index i % 8 == 4
+    generate
+        if (NK > 6) begin : g_aes256_subword
+            SubWord u_subword_temp (
+                .in  (key_in[3]),
+                .out (sub_temp_out)
+            );
+        end else begin : g_no_extra_subword
+            assign sub_temp_out = 32'h0;
+        end
+    endgenerate
+
+    // Key Generation Logic
+    always_comb begin
+        for (int i = 0; i < NK; i++) begin
+            if (i == 0) begin
+                // w[i] = w[i-Nk] ^ SubWord(RotWord(w[i-1])) ^ Rcon
+                temp[0] = key_in[0] ^ sub_rot_out ^ get_rcon(round);
+            end else if (NK > 6 && i == 4) begin
+                // Special case for AES-256: w[i] = w[i-Nk] ^ SubWord(w[i-1])
+                temp[i] = key_in[4] ^ sub_temp_out;
+            end else begin
+                // Standard case: w[i] = w[i-Nk] ^ w[i-1]
+                temp[i] = key_in[i] ^ temp[i-1];
+            end
+        end
+    end
+
+    assign key_out = temp;
+
+endmodule
 
 :::
 
-It looks very nice. It did also use JS which should be fine, but maybe goes a bit outside of what the prompt was asking for.  
+It works, but is much different than my code. It makes use of "for" loops and "generate" statements so that it can accommadate different AES key counts and rounds.   
 
 Prompt 2:
 
 ::: {.callout-note collapse="true"}
 ## Expand to see prompt:
-"Write me a C function to carry out a SPI transaction to retrieve a temperature reading from a DS1722 sensor. Make use of CMSIS libraries for the STM32L432KC."
+"Write SystemVerilog HDL to implement the following logic:
+i = 0
+while i < Nk do
+    w[i] <- key[4*i..4*i+3]
+    i <- i+1
+end while
+while i <= 4 * Nr + 3 do
+    temp <- w[i-1]
+    if i mod Nk = 0 then
+        temp <- module1(module2(temp)) (+) Rcon[i/Nk]
+    else if Nk > 6 and i mod Nk = 4 then
+        temp <- module1(temp)
+    end if
+    w[i] <- w[i-Nk] (+) temp
+    i <- i + 1
+end while
+return w
+Assume module1 and module2 are existing modules that can be instantiated. (+) refers to XOR. Unwrap the loop in the provided pseudo code so it uses the previous iterations output to generate the new iteration.
+Do not use any existing knowledge of the AES specifications in your answer."
 :::
 
 ::: {.callout-note collapse="true"}
 ## Expand to see AI output:
-#include "stm32l432xx.h"
-#include <stdint.h>
+// Module: key_expansion_step
+// Purely combinational logic to generate the next round key from the previous round key
+// Supports AES-128 (Nk=4), AES-192 (Nk=6), and AES-256 (Nk=8) via parameters.
 
-// DS1722 Register Addresses (Read operations)
-#define DS1722_READ_CONFIG   0x00
-#define DS1722_READ_TEMP_LSB 0x01
-#define DS1722_READ_TEMP_MSB 0x02
+module key_expansion_step #(
+    parameter int NK = 4  // Number of 32-bit words in key (4 for AES-128, 6 for AES-192, 8 for AES-256)
+) (
+    input  logic [31:0]           key_in  [0:NK-1], // Previous round key / key state
+    input  logic [3:0]            round,           // Current round number (1 to Nr)
+    output logic [31:0]           key_out [0:NK-1]  // Next round key / key state
+);
 
-// DS1722 Chip Enable (CE) Pin Definition: PB0 (Example GPIO Pin)
-#define DS1722_CE_PORT       GPIOB
-#define DS1722_CE_PIN        (1U << 0)
+    // Round Constant Lookup Table (Rcon[1..10])
+    function automatic logic [31:0] get_rcon(input logic [3:0] r);
+        case (r)
+            4'd1:  get_rcon = 32'h01_00_00_00;
+            4'd2:  get_rcon = 32'h02_00_00_00;
+            4'd3:  get_rcon = 32'h04_00_00_00;
+            4'd4:  get_rcon = 32'h08_00_00_00;
+            4'd5:  get_rcon = 32'h10_00_00_00;
+            4'd6:  get_rcon = 32'h20_00_00_00;
+            4'd7:  get_rcon = 32'h40_00_00_00;
+            4'd8:  get_rcon = 32'h80_00_00_00;
+            4'd9:  get_rcon = 32'h1b_00_00_00;
+            4'd10: get_rcon = 32'h36_00_00_00;
+            default: get_rcon = 32'h00_00_00_00;
+        endcase
+    endfunction
 
-static inline void DS1722_CE_High(void) {
-    DS1722_CE_PORT->BSRR = DS1722_CE_PIN;
-}
+    // Intermediate word declarations
+    logic [31:0] rot_out;
+    logic [31:0] sub_rot_out;
+    logic [31:0] sub_temp_out;
+    logic [31:0] temp [0:NK-1];
 
-static inline void DS1722_CE_Low(void) {
-    DS1722_CE_PORT->BRR = DS1722_CE_PIN;
-}
+    // Instantiate RotWord module for the word coming from key_in[NK-1]
+    RotWord u_rotword (
+        .in  (key_in[NK-1]),
+        .out (rot_out)
+    );
 
-/**
-  * @brief Transmits and receives a single byte over SPI1 using CMSIS registers.
-  * @param data Byte to send
-  * @return Received byte
-  */
-uint8_t SPI1_TransferByte(uint8_t data) {
-    // Wait until TX FIFO has room (TXE flag)
-    while (!(SPI1->SR & SPI_SR_TXE));
-    
-    // Write byte to Data Register (8-bit access forced via byte cast)
-    *(__IO uint8_t *)&SPI1->DR = data;
-    
-    // Wait until Receive FIFO is not empty (RXNE flag)
-    while (!(SPI1->SR & SPI_SR_RXNE));
-    
-    // Read and return 8-bit data from FIFO
-    return *(__IO uint8_t *)&SPI1->DR;
-}
+    // Instantiate SubWord module following RotWord
+    SubWord u_subword_rot (
+        .in  (rot_out),
+        .out (sub_rot_out)
+    );
 
-/**
-  * @brief Reads temperature from the DS1722 sensor via SPI.
-  * @return Temperature in degrees Celsius (°C).
-  */
-float DS1722_ReadTemperature(void) {
-    uint8_t lsb = 0;
-    int8_t msb = 0;
+    // Instantiate SubWord for AES-256 extra substitution step at index i % 8 == 4
+    generate
+        if (NK > 6) begin : g_aes256_subword
+            SubWord u_subword_temp (
+                .in  (key_in[3]),
+                .out (sub_temp_out)
+            );
+        end else begin : g_no_extra_subword
+            assign sub_temp_out = 32'h0;
+        end
+    endgenerate
 
-    // 1. Assert Chip Enable (Active High)
-    DS1722_CE_High();
+    // Key Generation Logic
+    always_comb begin
+        for (int i = 0; i < NK; i++) begin
+            if (i == 0) begin
+                // w[i] = w[i-Nk] ^ SubWord(RotWord(w[i-1])) ^ Rcon
+                temp[0] = key_in[0] ^ sub_rot_out ^ get_rcon(round);
+            end else if (NK > 6 && i == 4) begin
+                // Special case for AES-256: w[i] = w[i-Nk] ^ SubWord(w[i-1])
+                temp[i] = key_in[4] ^ sub_temp_out;
+            end else begin
+                // Standard case: w[i] = w[i-Nk] ^ w[i-1]
+                temp[i] = key_in[i] ^ temp[i-1];
+            end
+        end
+    end
 
-    // 2. Send starting register address for Read (LSB register at 0x01)
-    SPI1_TransferByte(DS1722_READ_TEMP_LSB);
+    assign key_out = temp;
 
-    // 3. Read LSB byte (transmit dummy 0xFF to drive SCLK)
-    lsb = SPI1_TransferByte(0xFF);
-
-    // 4. Read MSB byte (address auto-increments to 0x02 inside DS1722)
-    msb = (int8_t)SPI1_TransferByte(0xFF);
-
-    // 5. Deassert Chip Enable
-    DS1722_CE_Low();
-
-    // 6. Combine registers into temperature value
-    // MSB contains 8-bit signed integer. 
-    // LSB upper 4 bits represent fractional part in increments of 0.0625°C.
-    float temperature = (float)msb + ((lsb >> 4) * 0.0625f);
-
-    return temperature;
-}
+endmodule
 :::
 
-The code it produced is very similar to mine. It is structured differently, but that's just due to the prompt. The actual functions are very similar. It does calculate the temperature in a different way, probably more robust than mine which depends on float division. It also has functions to set the CS pin high and low. I think it's cool that I ended up with a similar solution to the problem of where to set the CS pin assignment by having it as a macro in the same file as the sensor functions.
+This code also works and is very similar to the previous code. I don't think asking it to not use existing knowledge really does anything if you want it to ignore things it was trained on.
 
 
 
